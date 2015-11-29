@@ -141,7 +141,7 @@ module.exports = function (grunt) {
 
     // Remove directories and invalid paths from this.files
     this.files.forEach(function (file) {
-      file.src = file.src.filter(function (filepath) {
+      file.src.forEach(function (filepath) {
         // If the file does not exist, remove it
         if (!grunt.file.exists(filepath)) {
           grunt.log.warn(messages.fileNotExist(filepath));

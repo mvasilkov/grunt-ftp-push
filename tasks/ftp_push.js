@@ -96,7 +96,7 @@ module.exports = function (grunt) {
       // If there are more files, then keep pushing
       if (index < files.length) {
         file = files[index];
-        server.put(grunt.file.read(file.src, { encoding: null }), file.dest, processFile);
+        server.put(grunt.file.read(file.src, { encoding: null }), file.dest.replace('pack/', ''), processFile);
       } else {
         // Close the connection, we are complete
         server.raw.quit(function(quitErr) {
@@ -112,7 +112,7 @@ module.exports = function (grunt) {
     };
 
     // Start uploading files
-    server.put(grunt.file.read(file.src, { encoding: null }), file.dest, processFile);
+    server.put(grunt.file.read(file.src, { encoding: null }), file.dest.replace('pack/', ''), processFile);
   };
 
   grunt.registerMultiTask('ftp_push', 'Transfer files using FTP.', function() {
@@ -187,10 +187,10 @@ module.exports = function (grunt) {
       }
 
       // Push directories first
-      pushDirectories(dirs, function () {
+      //pushDirectories(dirs, function () {
         // Directories have successfully been pushed, now upload files
         uploadFiles(files);
-      });
+      //});
 
     });
 

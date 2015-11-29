@@ -1,7 +1,7 @@
 {
-  "name": "grunt-ftp-push",
+  "name": "grunt-ftp-push-patch",
   "description": "Deploy your files to a FTP server.",
-  "version": "0.4.3",
+  "version": "0.4.3-patch1",
   "homepage": "http://robert-w.github.io/grunt-ftp-push",
   "author": {
     "name": "Robert Winterbottom",
